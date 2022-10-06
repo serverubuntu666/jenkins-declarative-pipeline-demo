@@ -10,10 +10,14 @@ pipeline {
             }
         }
         stage ('test') {
-            echo "testing phase..."
+            steps {
+                echo "testing phase..."
+            }
         }
         stage ('deploy') {
-            echo "deploying phase..."
+            steps {
+                echo "deploying phase..."
+            }
         }
     }
 
