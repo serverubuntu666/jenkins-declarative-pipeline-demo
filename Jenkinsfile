@@ -11,7 +11,7 @@ pipeline {
     }
     stages {
         stage ('printing parameters') {
-            step {
+            steps {
                 echo "Hello, ${params.NAME}"
                 echo "Job details, ${params.DESC}"
                 echo "Skip running test? ${params.SKIP_TEST}"
