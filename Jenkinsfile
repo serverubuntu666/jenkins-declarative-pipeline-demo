@@ -24,8 +24,8 @@ pipeline {
         }
         stage ('Load credentials') {
             steps {
-                echo "username: ${params.MY_CRED_USR}"
-                echo "username: ${params.MY_CRED_PSW}"
+                echo "username: ${MY_CRED_USR}"
+                echo "password: ${MY_CRED_PSW}"
             }
         }
     }
