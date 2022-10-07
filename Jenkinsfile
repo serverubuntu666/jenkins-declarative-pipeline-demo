@@ -9,6 +9,9 @@ pipeline {
         choice(name: 'BRANCH', description: 'choose branch', choices:['main', 'feature'])
         password(name: 'SONAR_SERVER_PWD', description: 'Enter Sonar password')
     }
+    environment {
+        MY_CRED = credentials('jenkins')
+    }
     stages {
         stage ('printing parameters') {
             steps {
@@ -17,6 +20,12 @@ pipeline {
                 echo "Skip running test? ${params.SKIP_TEST}"
                 echo "Branch choice, ${params.BRANCH}"
                 echo "sonar password, ${params.SONAR_SERVER_PWD}"
+            }
+        }
+        stage ('Load credentials') {
+            steps {
+                echo "username: ${params.MY_CRED_USR}"
+                echo "username: ${params.MY_CRED_PSW}"
             }
         }
     }
