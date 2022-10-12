@@ -12,6 +12,14 @@ pipeline {
     environment {
         MY_CRED = credentials('jenkins')
     }
+    stages {
+        stage('run script') {
+            steps {
+                echo "hi"
+                sh 'simple.sh'
+            }
+        }
+    }
     // stages {
     //     stage ('printing parameters') {
     //         steps {
@@ -29,26 +37,26 @@ pipeline {
     //         }
     //     }
     // }
-    stages {
-        stage('trycatchblock') {
-            steps {
-                script {
-                    def apply = false
-                    try {
-                        input message: 'can you pls confirm the apply?', ok: 'ready to apply the config'
-                        apply = true
-                    } catch(err) {
-                        apply = false
-                        currentBuild.result = 'UNSTABLE'
+    // stages {
+    //     stage('trycatchblock') {
+    //         steps {
+    //             script {
+    //                 def apply = false
+    //                 try {
+    //                     input message: 'can you pls confirm the apply?', ok: 'ready to apply the config'
+    //                     apply = true
+    //                 } catch(err) {
+    //                     apply = false
+    //                     currentBuild.result = 'UNSTABLE'
 
-                    }
-                    if(apply) {
-                        echo "build succesfull..."
-                    }
-                }
-            }
-        }
-    }
+    //                 }
+    //                 if(apply) {
+    //                     echo "build succesfull..."
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
     // stages {
     //     stage('Build') {
     //         steps {
