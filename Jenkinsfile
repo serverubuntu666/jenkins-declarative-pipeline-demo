@@ -15,9 +15,11 @@ pipeline {
     stages {
         stage('run script') {
             steps {
-                echo "hi"
+                dir('jenkins-terraform-pipeline/ec2_pipeline/'){
+               echo "hi"
                 sh 'chmod +x simple.sh'
                 sh 'simple.sh'
+                }
             }
         }
     }
