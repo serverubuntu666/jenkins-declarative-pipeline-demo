@@ -16,7 +16,7 @@ pipeline {
         stage('run script') {
             steps {
                 echo "hi"
-                sh 'chmod +x simple.sh'
+                // sh 'chmod +x simple.sh'
                 sh 'simple.sh'
             }
         }
